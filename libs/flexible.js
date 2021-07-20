@@ -1,4 +1,4 @@
-export const useFlexible = () => {
+export const useFlexible = (part = 10) => {
   let win = window
   let lib = window['lib'] || (window['lib'] = {})
 
@@ -79,11 +79,10 @@ export const useFlexible = () => {
 
   function refreshRem() {
     var width = docEl.getBoundingClientRect().width
-    console.log(width)
     if (width / dpr > 540) {
       width = 540 * dpr
     }
-    var rem = width / 10
+    var rem = width / part
     docEl.style.fontSize = rem + 'px'
     flexible.rem = win.rem = rem
   }

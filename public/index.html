@@ -6,8 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    .debounce-test-box {
+      width: 700px;
+      height: 400px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .debounce,
+    .no-debounce {
+      width: 300px;
+      height: 400px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .debounce {
+      background-color: pink;
+    }
+    .no-debounce {
+      background-color: aquamarine;
+    }
+    .inside-box {
+      width: 300px;
+      height: 1000px;
+    }
+  </style>
   <body>
-    1212
-    <script type="module"></script>
+    <h2>测试防抖</h2>
+    <div class="debounce-test-box">
+      <div class="debounce">
+        <div class="inside-box">
+          <span>防抖执行次数</span>
+          <span class="msg">0</span>
+        </div>
+      </div>
+      <div class="no-debounce">
+        <div class="inside-box">
+          <span>未防抖执行次数</span>
+          <span class="msg">0</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>测试节流</h2>
+
+    <div class="throttle-test-box">
+      <input type="text" class="throttle" />
+      <span>查询输入框内容的次数</span>
+      <span class="msg"></span>
+    </div>
+    <h2>测试导出excel</h2>
+    <div class="export-excel-test-box">
+      <div>
+        <button class="array-export">数组形式导出</button>
+      </div>
+      <div>
+        <button class="table-export">表格形式导出</button>
+        <table border="1" id="table-excel-data">
+          <tr>
+            <th>Month</th>
+            <th>Savings</th>
+          </tr>
+          <tr>
+            <td colspan="2">January</td>
+            <td>$100</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </body>
 </html>

@@ -45,7 +45,7 @@ export const unionArr = (arr1, arr2) => [...new Set([...arr1, ...arr2])]
 
 //数组交集
 export const intersectArr = (arr1, arr2) => [
-  ...new Set(arr1.filter((x) => b.includes(x))),
+  ...new Set(arr1.filter((x) => arr2.includes(x))),
 ]
 
 // 创建一个唯一的字符串id，存在相同的可能性，但极小

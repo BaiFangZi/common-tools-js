@@ -2,7 +2,7 @@
   "name": "common-tools-js",
   "version": "1.0.0",
   "description": "常用的js工具",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack server --config ./build/webpack.dev.config.js --hot --inline",
@@ -11,14 +11,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
     "babel-loader": "^8.2.2",
-    "core.js": "^0.4.2",
+    "core-js": "^3.15.2",
     "html-webpack-plugin": "^5.3.2",
     "webpack": "^5.44.0",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "lib-flexible": "^0.3.2"
+    "file-saver": "^2.0.5",
+    "lib-flexible": "^0.3.2",
+    "script-loader": "^0.7.2",
+    "xlsx": "^0.17.0"
   }
 }

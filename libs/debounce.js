@@ -1,4 +1,6 @@
-export const debounce = (func, wait, immediate) => {
+// immediate :true立即执行 false :等待timeout执行
+
+export const debounce = (func, wait = 100, immediate = false) => {
   let timeout, args, context, timestamp, result
 
   const later = function () {

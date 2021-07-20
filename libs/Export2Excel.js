@@ -4,6 +4,7 @@ import XLSX from 'xlsx'
 
 function generateArray(table) {
   var out = []
+  // const th = table.querySelectorAll('th')
   var rows = table.querySelectorAll('tr')
   var ranges = []
   for (var R = 0; R < rows.length; ++R) {
@@ -118,9 +119,14 @@ function s2ab(s) {
 }
 
 // html table 标签内容站excel
-export function export_table_to_excel(id) {
+export function tableToExcel({
+  id,
+  fileName = '新建excel',
+  bookType = 'xlsx',
+}) {
   var theTable = document.getElementById(id)
   var oo = generateArray(theTable)
+
   var ranges = oo[1]
 
   /* original data */
@@ -139,33 +145,33 @@ export function export_table_to_excel(id) {
   wb.Sheets[ws_name] = ws
 
   var wbout = XLSX.write(wb, {
-    bookType: 'xlsx',
+    bookType,
     bookSST: false,
     type: 'binary',
   })
-
+  console.log(fileName)
   saveAs(
     new Blob([s2ab(wbout)], {
       type: 'application/octet-stream',
     }),
-    'test.xlsx'
+    `${fileName}.${bookType}`
   )
 }
 
 //数组格式转excel
 
-export function export_json_to_excel({
+export function arrayToExcel({
   multiHeader = [],
   header,
   data,
-  filename,
+  filename = '新建excel',
   merges = [],
   autoWidth = true,
   bookType = 'xlsx',
   compression,
 } = {}) {
   /* original data */
-  filename = filename || 'excel-list'
+  // filename = filename || 'excel-list'
   data = [...data]
   data.unshift(header)
 

@@ -1,6 +1,7 @@
 const path = require('path')
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
+let BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
   mode: 'production',
   entry: path.resolve(__dirname, '../', 'libs/index.js'),
@@ -41,5 +42,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [],
+  plugins: [new BundleAnalyzerPlugin()],
 }
