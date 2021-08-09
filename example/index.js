@@ -86,6 +86,7 @@ function testExportExcel() {
     })
   })
 }
+
 function test() {
   testFormatData()
   testFlexible()
