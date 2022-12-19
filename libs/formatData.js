@@ -54,3 +54,9 @@ export const uniqueId = () => {
   let time = Date.now().toString(36)
   return `${random}${time}`
 }
+
+// 获取url参数
+// getParameters("https://www.google.com.hk/search?q=js+md&newwindow=1");
+// {q: 'js+md', newwindow: '1'}
+export const getParameters = URL => JSON.parse(`{"${decodeURI(URL.split("?")[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"')}"}`
+  )
