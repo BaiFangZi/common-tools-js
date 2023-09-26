@@ -58,5 +58,23 @@ export const uniqueId = () => {
 // 获取url参数
 // getParameters("https://www.google.com.hk/search?q=js+md&newwindow=1");
 // {q: 'js+md', newwindow: '1'}
-export const getParameters = URL => JSON.parse(`{"${decodeURI(URL.split("?")[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"')}"}`
-  )
+export const getParameters = URL => JSON.parse(`{"${decodeURI(URL.split("?")[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"')}"}`)
+
+// 秒转换为天时分
+export const secondToTime(val, secsInMin = 60, minsInHour = 60, minsInDay = 1440) {
+  if (val < 0 || !val) return '-'
+
+  if (val < secsInMin) {
+    return val + '秒'
+  }
+
+  const mins = Math.floor((val / secsInMin) % minsInHour)
+  const hours = Math.floor((val / secsInMin / minsInHour) % 24)
+  const days = Math.floor(val / secsInMin / minsInHour / minsInDay)
+
+  const dayStr = days ? `${days}天` : ''
+  const hourStr = hours ? `${hours}小时` : ''
+  const minuteStr = mins ? `${mins}分钟` : ''
+
+  return dayStr + hourStr + minuteStr
+}
