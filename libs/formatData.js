@@ -61,7 +61,7 @@ export const uniqueId = () => {
 export const getParameters = URL => JSON.parse(`{"${decodeURI(URL.split("?")[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"')}"}`)
 
 // 秒转换为天时分
-export const secondToTime(val, secsInMin = 60, minsInHour = 60, minsInDay = 1440) {
+export const secondToTime = (val, secsInMin = 60, minsInHour = 60, minsInDay = 1440) => {
   if (val < 0 || !val) return '-'
 
   if (val < secsInMin) {
